@@ -77,6 +77,20 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<image>
+                        <!--<name>ghcr.io/aziubin/${project.artifactId}:${project.version}</name> -->
+                        <name>docker.io/nikziu/${project.artifactId}:${project.version}</name>
+                        <publish>true</publish>
+                    </image>
+                    <docker>
+                        <publishRegistry>
+                        <url>https://index.docker.io/v2</url>
+                        <username>nikziu</username>
+                        <password>dckr_pat_Qsdn45mlojjn3jk</password>
+<!--                    <token>dckr_pat_mg95y7hghgw4hgwhgwhgn</token> -->
+                        <email>nikita.ziubin@gmail.com</email>
+                        </publishRegistry>                    
+                    </docker>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -3,7 +3,7 @@ package com.learn.springboot.web_api_lesson;
 import java.util.Date;
 import java.util.UUID;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 @Setter
-@Service
+@Component
 public class InfoPersistance {
 	private Info info = Info.builder()
 			.guid(UUID.randomUUID().toString())
