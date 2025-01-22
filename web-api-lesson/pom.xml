@@ -85,9 +85,9 @@
                     <docker>
                         <publishRegistry>
                         <url>https://index.docker.io/v2</url>
-                        <username>nikziu</username>
-                        <password>dckr_pat_Qsdn45mlojjn3jk</password>
-<!--                    <token>dckr_pat_mg95y7hghgw4hgwhgwhgn</token> -->
+                        <username>${env.DOCKER_PUBLISH_USERNAME}</username>
+                        <password>${env.DOCKER_PUBLISH_PASSWORD}</password>
+						<!--<token>dckr_pat_mg95y7hghgw4hgwhgwhgn</token> -->
                         <email>nikita.ziubin@gmail.com</email>
                         </publishRegistry>                    
                     </docker>
