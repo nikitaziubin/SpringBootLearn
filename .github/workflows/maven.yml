@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       env:
         DOCKER_PUBLISH_USERNAME: ${{ secrets.DOCKER_PUBLISH_USERNAME }}
-        DOCKER_PUBLISH_TOKEN: ${{ secrets.DOCKER_PUBLISH_TOKEN }}
+        DOCKER_PUBLISH_PASSWORD: ${{ secrets.DOCKER_PUBLISH_PASSWORD }}
 
       run: mvn -B spring-boot:build-image --file web-api-lesson/pom.xml
 
