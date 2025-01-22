@@ -86,8 +86,8 @@
                         <publishRegistry>
                         	<url>https://index.docker.io/v2</url>
                         	<username>${env.DOCKER_PUBLISH_USERNAME}</username>
-                        	<!--<password>${env.DOCKER_PUBLISH_PASSWORD}</password> -->
-							<token>{env.DOCKER_PUBLISH_TOKEN}</token>
+                        	<password>${env.DOCKER_PUBLISH_PASSWORD}</password>
+							<!--<token>{env.DOCKER_PUBLISH_TOKEN}</token> -->
                         	<email>nikita.ziubin@gmail.com</email>
                         </publishRegistry>                    
                     </docker>
