@@ -84,11 +84,11 @@
                     </image>
                     <docker>
                         <publishRegistry>
-                        <url>https://index.docker.io/v2</url>
-                        <username>${env.DOCKER_PUBLISH_USERNAME}</username>
-                        <password>${env.DOCKER_PUBLISH_PASSWORD}</password>
-						<!--<token>dckr_pat_mg95y7hghgw4hgwhgwhgn</token> -->
-                        <email>nikita.ziubin@gmail.com</email>
+                        	<url>https://index.docker.io/v2</url>
+                        	<username>${env.DOCKER_PUBLISH_USERNAME}</username>
+                        	<password>${env.DOCKER_PUBLISH_PASSWORD}</password>
+							<!--<token>dckr_pat_mg95y7hghgw4hgwhgwhgn</token> -->
+                        	<email>nikita.ziubin@gmail.com</email>
                         </publishRegistry>                    
                     </docker>
 				</configuration>
