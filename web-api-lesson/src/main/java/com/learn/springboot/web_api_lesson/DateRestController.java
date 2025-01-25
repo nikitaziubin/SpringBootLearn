@@ -17,10 +17,13 @@ public class DateRestController {
 	@Resource
 	InfoPersistance infoPersistance;
 
+	@Resource
+	KafkaProducer kafkaProducer;
+	
 	@GetMapping("/date")
 	public Date getDate() {
 		Date result = new Date();
-		log.info("get date: {} {}", result, new Date());
+		log.info("get date: {} {}", result, new Date());		
 		return result;
 	}
 
@@ -45,4 +48,10 @@ public class DateRestController {
 		log.info("Created info object: {}", result);
 		return result;
 	}
+	
+	@PostMapping("/firs-topic")
+	public void postInfo(@RequestBody String message) {
+		kafkaProducer.send(message);
+	}
+	
 }

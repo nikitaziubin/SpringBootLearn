@@ -51,6 +51,7 @@ class WebApiLessonApplicationTests {
 		assertNotNull(info.getGuid());
 		assertNotNull(info.getId());
 	}
+	
 	@Test
 	void send_info() {
 		Info info = Info.builder()
@@ -59,10 +60,12 @@ class WebApiLessonApplicationTests {
 						   .id(1)
 						   .build(); 	
 		assertEquals(info, testRestTemplate.postForObject("/info", info, Info.class));
-		assertEquals(info, testRestTemplate.getForObject("/info", Info.class), "Received Info does not match.");
-		
-		
-		
+		assertEquals(info, testRestTemplate.getForObject("/info", Info.class), "Received Info does not match.");		
+	}
+	
+	@Test
+	void kafka_producer_test() {
+		testRestTemplate.postForObject("/firs-topic", "String from test", String.class);
 		
 	}
 }
