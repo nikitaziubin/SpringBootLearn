@@ -43,6 +43,9 @@ public class DateRestController {
 
 	@PostMapping("/info")
 	public Info postInfo(@RequestBody Info info) {
+		kafkaProducer.send(info);
+		log.info("Info {} was sent from postInfo", info);
+		
 		infoPersistance.setInfo(info);
 		Info result = infoPersistance.getInfo();
 		log.info("Created info object: {}", result);

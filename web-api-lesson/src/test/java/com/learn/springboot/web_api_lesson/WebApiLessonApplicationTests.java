@@ -11,9 +11,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.kafka.annotation.KafkaListener;
 
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class WebApiLessonApplicationTests {
 	
@@ -64,8 +67,25 @@ class WebApiLessonApplicationTests {
 	}
 	
 	@Test
-	void kafka_producer_test() {
-		testRestTemplate.postForObject("/firs-topic", "String from test", String.class);
+	void kafka_producer_string_test() {
+		
+		testRestTemplate.postForObject("/firs-topic", "-------------String from test---------", String.class);
 		
 	}
+	
+	@Test
+	void kafka_producer_info_test() {
+		Info info = Info.builder()
+				   .date(new Date())
+				   .guid(UUID.randomUUID().toString())
+				   .id(1)
+				   .build(); 	
+		testRestTemplate.postForObject("/info", info, Info.class);
+		
+	}
+	@KafkaListener(topics = KafkaProducer.FIRS_TOPIC)
+	public void listen(String message) {
+		log.info("The message from test`s consumer {} is {}", KafkaProducer.FIRS_TOPIC, message);
+	}
+	
 }
