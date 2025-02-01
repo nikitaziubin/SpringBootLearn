@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.util.Date;
 import java.util.UUID;
 
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -18,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@EmbeddedKafka(partitions = 1, topics = KafkaProducer.FIRS_TOPIC)
 class WebApiLessonApplicationTests {
 	
 	@Resource
@@ -72,6 +74,7 @@ class WebApiLessonApplicationTests {
 		testRestTemplate.postForObject("/firs-topic", "-------------String from test---------", String.class);
 		
 	}
+	
 	
 	@Test
 	void kafka_producer_info_test() {
